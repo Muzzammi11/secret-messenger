@@ -104,9 +104,15 @@ export default function AdminPage() {
 
   return (
     <div className="admin-container">
-      <div className="admin-header">
-        <h1><i className="fas fa-shield-alt"></i> Admin Panel</h1>
-        <p>Monitor messages and user activity</p>
+      
+      <div className="admin-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '1rem' }}>
+        <button className='homeButton' onClick={() => router.push('/')} >
+          Go Back
+        </button>
+        <div style={{ flex: 1, textAlign: 'center' }}>
+          <h1><i className="fas fa-shield-alt"></i> Admin Panel</h1>
+          <p>Monitor messages and user activity</p>
+        </div>
       </div>
 
       {/* Stats Grid */}

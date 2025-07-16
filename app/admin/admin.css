@@ -184,6 +184,32 @@ canvas {
     border-color: var(--primary);
 }
 
+.homeButton {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+    width: auto;
+    margin-right: auto;
+}
+
+.homeButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.6);
+}
+
+.homeButton:active {
+    transform: scale(0.98);
+}
 /* Admin Panel Responsive Design */
 @media (max-width: 768px) {
     .admin-container {
@@ -201,5 +227,19 @@ canvas {
     .filter-bar {
         flex-direction: column;
         align-items: stretch;
+    }
+    .homeButton {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .homeButton {
+        
+        padding: 0.25rem 0.5rem;
+        font-size: 0.5rem;
+        border-radius: 4px;
+        background: linear-gradient(60deg, var(--primary), var(--secondary));
     }
 } 

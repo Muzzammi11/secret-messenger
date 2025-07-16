@@ -8,10 +8,7 @@ import { Typewriter } from 'react-simple-typewriter';
 // This function gets the user's IP address and location info
 async function getIPAddress() {
   try {
-    
-    const response = await fetch(
-      "https://ipinfo.io/json?token=64006e093bf4e1"
-    );
+    const response = await fetch('/api/ipinfo');
     const data = await response.json();
     return {
       ip: data.ip,
