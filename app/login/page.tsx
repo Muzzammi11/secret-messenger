@@ -19,7 +19,7 @@ export default function LoginPage() {
       // Use the imported auth instance directly
       await signInWithEmailAndPassword(auth, email, password);
       router.push('/admin');
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError('Failed to log in. Please check your email and password.');
       console.error(err);
     }

@@ -127,7 +127,7 @@ export default function AdminPage() {
         </div>
         <div className="stat-card">
           <div className="stat-number">{stats.today}</div>
-          <div className="stat-label">Today's Messages</div>
+          <div className="stat-label">Today&apos;s Messages</div>
         </div>
       </div>
 

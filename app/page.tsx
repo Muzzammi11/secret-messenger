@@ -132,7 +132,7 @@ export default function Home() {
       </main>
 
       <footer>
-        <p>Hey stalker 👀... you could’ve just sent a message, y'know?</p>
+        <p>Hey stalker 440... you could&rsquo;ve just sent a message, y&#39;know?</p>
         
          
         

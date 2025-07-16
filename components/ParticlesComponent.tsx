@@ -6,7 +6,7 @@ import Script from 'next/script';
 // This is to declare the particlesJS function to TypeScript
 declare global {
     interface Window {
-        particlesJS: any;
+        particlesJS: (tagId: string, options: object) => void;
     }
 }
 
