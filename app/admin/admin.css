@@ -1,0 +1,205 @@
+/* CSS Variables for Theme Customization */
+:root {
+    --primary: #8A2BE2;
+    --secondary: #00FFFF;
+    --bg: #121212;
+    --card-bg: #1a1a1a;
+    --text-glow: 0 0 10px currentColor;
+    --transition-speed: 0.4s;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg);
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    z-index: -1;
+}
+
+canvas {
+    display: block;
+    vertical-align: bottom;
+}
+
+/* Admin Panel Styles */
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+.admin-header h1 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(138, 43, 226, 0.2);
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.messages-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.message-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.message-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.message-content {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.message-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.meta-item i {
+    color: var(--secondary);
+    width: 16px;
+}
+
+.empty-messages {
+    text-align: center;
+    padding: 3rem;
+    color: #777;
+    font-style: italic;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--secondary);
+}
+
+.filter-bar {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(138, 43, 226, 0.5);
+    border-radius: 4px;
+    padding: 0.5rem;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.filter-input {
+    
+    flex: 1; /* Allows the input to grow and shrink */
+    min-width: 100px; /* Prevents inputs from getting too small */
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Admin Panel Responsive Design */
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .message-meta {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+} 
