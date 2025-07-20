@@ -132,12 +132,12 @@ export default function Home() {
       </main>
 
       <footer>
-        <p>Hey stalker 440... you could&rsquo;ve just sent a message, y&#39;know?</p>
+        <p>Hey stalker 👀... you could&rsquo;ve just sent a message, y&#39;know?</p>
         
          
         
   <p style={{ fontSize: '0.8rem', color: '#555' }}>
-    © 2025 Secret Messenger | Developed by Muxain  
+    © 2025 Secret Messenger | Developed by Muzzammil  
   </p>
 
 
