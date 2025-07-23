@@ -136,9 +136,7 @@ export default function Home() {
         
          
         
-  <p style={{ fontSize: '0.8rem', color: '#555' }}>
-    © 2025 Secret Messenger | Developed by Muzzammil  
-  </p>
+
 
 
       </footer>
