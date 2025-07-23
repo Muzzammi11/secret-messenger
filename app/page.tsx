@@ -82,7 +82,7 @@ export default function Home() {
   <div className="subtitle">
     <Typewriter
       // All phrases are combined into one string
-      words={['Send anonymous messages. Share your thoughts freely.']}
+      words={['Send anonymous messages to Muxain']}
       // Set loop to false to make it stop at the end
       cursor
       cursorStyle=''
