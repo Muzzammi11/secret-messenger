@@ -125,7 +125,7 @@ export default function Home() {
               <li>❌ No threats, hate speech, or bullying</li>
             </ul>
             <p className="terms-note">
-              All messages are anonymous. No personal data is stored.
+              Messages are anonymous. The recipient will not know who sent the message.
             </p>
           </div>
         </div>
