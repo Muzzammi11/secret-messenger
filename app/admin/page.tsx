@@ -8,14 +8,11 @@ import { collection, getDocs, orderBy, query, Timestamp } from 'firebase/firesto
 import  './admin.css'
 
 // Define a type for our message objects
-interface Message {
+type Message = {
   id: string;
   text: string;
   timestamp: Timestamp | null;
-  ip?: string;
-  city?: string;
-  country?: string;
-}
+};
 
 export default function AdminPage() {
   // State for messages
@@ -28,8 +25,6 @@ export default function AdminPage() {
 
   // State for filters, same as your original project
   const [searchTerm, setSearchTerm] = useState('');
-  const [ipFilter, setIpFilter] = useState('');
-  const [countryFilter, setCountryFilter] = useState('');
   const [sortOrder, setSortOrder] = useState('newest');
 
   // Effect for authentication and initial data fetch
@@ -64,12 +59,6 @@ export default function AdminPage() {
     if (searchTerm) {
       messages = messages.filter(msg => msg.text.toLowerCase().includes(searchTerm.toLowerCase()));
     }
-    if (ipFilter) {
-      messages = messages.filter(msg => msg.ip?.includes(ipFilter));
-    }
-    if (countryFilter) {
-      messages = messages.filter(msg => msg.country?.toLowerCase().includes(countryFilter.toLowerCase()));
-    }
     if (sortOrder === 'oldest') {
       messages.sort((a, b) => (a.timestamp?.toMillis() ?? 0) - (b.timestamp?.toMillis() ?? 0));
     } else {
@@ -77,18 +66,16 @@ export default function AdminPage() {
     }
 
     setFilteredMessages(messages);
-  }, [allMessages, searchTerm, ipFilter, countryFilter, sortOrder]);
+  }, [allMessages, searchTerm, sortOrder]);
 
   // Calculate stats using useMemo for efficiency
   const stats = useMemo(() => {
-    const uniqueIPs = new Set(allMessages.map(msg => msg.ip).filter(Boolean));
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const todayMessages = allMessages.filter(msg => msg.timestamp && msg.timestamp.toDate() >= today).length;
     
     return {
       total: allMessages.length,
-      uniqueIPs: uniqueIPs.size,
       today: todayMessages,
     };
   }, [allMessages]);
@@ -122,10 +109,6 @@ export default function AdminPage() {
           <div className="stat-label">Total Messages</div>
         </div>
         <div className="stat-card">
-          <div className="stat-number">{stats.uniqueIPs}</div>
-          <div className="stat-label">Unique IPs</div>
-        </div>
-        <div className="stat-card">
           <div className="stat-number">{stats.today}</div>
           <div className="stat-label">Today&apos;s Messages</div>
         </div>
@@ -134,8 +117,6 @@ export default function AdminPage() {
       {/* Filter Bar */}
       <div className="filter-bar">
         <input type="text" className="filter-input" placeholder="Search messages..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
-        <input type="text" className="filter-input" placeholder="Filter by IP..." value={ipFilter} onChange={e => setIpFilter(e.target.value)} />
-        <input type="text" className="filter-input" placeholder="Filter by country..." value={countryFilter} onChange={e => setCountryFilter(e.target.value)} />
         <select className="filter-input" value={sortOrder} onChange={e => setSortOrder(e.target.value)}>
           <option value="newest">Newest First</option>
           <option value="oldest">Oldest First</option>
@@ -153,14 +134,7 @@ export default function AdminPage() {
                   <i className="fas fa-clock"></i>
                   <span>{formatDate(msg.timestamp)}</span>
                 </div>
-                <div className="meta-item">
-                  <i className="fas fa-globe"></i>
-                  <span>{msg.ip || 'Unknown'}</span>
-                </div>
-                <div className="meta-item">
-                  <i className="fas fa-map-marker-alt"></i>
-                  <span>{msg.city && msg.country ? `${msg.city}, ${msg.country}` : 'Unknown Location'}</span>
-                </div>
+               
               </div>
             </div>
           ))

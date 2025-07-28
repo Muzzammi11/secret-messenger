@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ParticlesComponent from "@/components/ParticlesComponent";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -26,7 +27,9 @@ export default function RootLayout({
         <ParticlesComponent />
         <div className="container">
           {children}
+          
         </div>
+     
       </body>
     </html>
   );
