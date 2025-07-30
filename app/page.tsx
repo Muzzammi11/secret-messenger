@@ -85,7 +85,7 @@ export default function Home() {
 
         <div className="card terms-card">
           <div className="terms-content">
-            <h2 className=" appinfo ">More about Anonymous Messenger</h2>
+            <h2 className="appinfo">More about Anonymous Messenger</h2>
             <p>
               This platform allows you to receive anonymous messages from anyone who has your unique link. 
               Share your profile and see what your friends, family, or colleagues have to say without revealing their identity.
