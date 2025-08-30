@@ -144,7 +144,6 @@ For Message Senders:
 
 🤝 Contributing
 
-
     Fork the repository
 
     Create your feature branch (git checkout -b feature/AmazingFeature)
@@ -160,7 +159,6 @@ For Message Senders:
 This project is licensed under the MIT License - see the LICENSE file for details.
 🙏 Acknowledgments
 
-    Built with ❤️ in Kashmir 🍁
 
     Powered by Next.js and Firebase
 
