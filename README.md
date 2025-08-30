@@ -157,13 +157,5 @@ For Message Senders:
 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-🙏 Acknowledgments
-
-
-    Powered by Next.js and Firebase
-
-    Inspired by the need for anonymous communication
-
-📞 Support
 
 If you have any questions or need help, please open an issue on GitHub.
