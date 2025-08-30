@@ -255,11 +255,24 @@ textarea {
   border-radius: 8px;
   text-transform: uppercase;
 }
+.btn-secondary {
+  background: var(--secondary);
+  box-shadow: none;
+  border-radius: 4px; 
+  padding: 2px 3px;
+  font-size: 0.9rem;
+}
 
 .btn-danger {
   background: var(--danger);
   box-shadow: none;
+  border-radius: 4px; 
+  padding: 2px 3px;
+  font-size: 0.9rem;
 }
+
+
+
 .btn-danger:hover {
   background: var(--danger-hover);
   box-shadow: none;
@@ -275,6 +288,8 @@ textarea {
   box-shadow: none;
   filter: brightness(1);
 }
+
+
 
 footer {
   text-align: center;
@@ -326,9 +341,9 @@ footer {
 }
 
 .main-navbar-logout {
-  width: 40px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  
   align-items: center;
 }
 
@@ -368,8 +383,8 @@ footer {
   padding: 2.5rem 2rem;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  min-width: 320px;
-  max-width: 450px;
+  min-width: 390px;
+  max-width: 500px;
   text-align: center;
   border: 1px solid rgba(138, 43, 226, 0.2);
   position: relative;
@@ -541,28 +556,8 @@ footer {
   margin-bottom: 3rem;
 }
 
-.refresh-icon-btn {
-  background: none;
-  border: none;
-  color: #bcb9b9;
-  font-size: 1.0rem;
-  cursor: pointer;
-  padding: 0.3rem 0.6rem;
-  border-radius: 50%;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/* .refresh-icon-btn:hover,
-.refresh-icon-btn:focus {
-  background: rgba(0, 255, 255, 0.08);
-  color: var(--primary);
-} */
-.refresh-icon-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+
+
 
 @keyframes float {
   0% {
@@ -643,7 +638,7 @@ footer {
   .main-navbar-title {
     font-size: 1.6rem;
   }
-  .main-navbar-logout,
+ 
   .main-navbar-spacer {
     width: 32px;
   }
@@ -887,6 +882,29 @@ a{
   }
 }
 
+
+
+
+.loader {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 600px) {
   .dialog-box {
     min-width: 90vw;
@@ -1031,3 +1049,33 @@ a{
   }
 }
 
+/* Centered loading screen container */
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg);
+}
+
+/* The X-style spinner */
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #64afdd; 
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
