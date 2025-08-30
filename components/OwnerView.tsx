@@ -1,10 +1,10 @@
-//componets/OwnerView.tsx
+//components/OwnerView.tsx
 "use client";
 
 import { useState, useEffect } from 'react';
 import { db } from '../firebase/config';
 import { collection, query, where, orderBy, onSnapshot, doc, deleteDoc, getDocs, Timestamp } from 'firebase/firestore';
-import { signOut, deleteUser, User } from 'firebase/auth';
+import { signOut, deleteUser, User, AuthError } from 'firebase/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
 import Footer from './Footer';
@@ -90,9 +90,10 @@ export default function OwnerDashboard({ username, currentUser }: OwnerViewProps
       await deleteDoc(doc(db, "users", username));
       await deleteUser(currentUser);
       router.push("/");
-    } catch (error: any) {
-      console.error("Error deleting account:", error);
-      if (error.code === 'auth/requires-recent-login') {
+    } catch (error) {
+      const authError = error as AuthError;
+      console.error("Error deleting account:", authError);
+      if (authError.code === 'auth/requires-recent-login') {
         alert("This is a sensitive operation. Please log out and log back in before deleting your account.");
         await signOut(auth);
         router.push('/login');
@@ -175,7 +176,7 @@ export default function OwnerDashboard({ username, currentUser }: OwnerViewProps
         <div className="card text-center">
           <h1 className="card-titlecopylink">Your Link</h1>
           <p className="card-subtitle">
-            Share this link with your friends and recieve anonymous messages!
+            Share this link with your friends and receive anonymous messages!
           </p>
           <div className="link-display-box">{pageUrl}</div>
           <button onClick={handleCopy} className="btn">Copy This Link</button>
@@ -193,7 +194,7 @@ export default function OwnerDashboard({ username, currentUser }: OwnerViewProps
             <p className="text-center">Loading messages...</p>
           ) : messages.length === 0 ? (
             <div className="empty-messages-placeholder">
-              You haven't received any messages yet. Share your link to get started!
+              You haven&apos;t received any messages yet. Share your link to get started!
             </div>
           ) : (
             <ul className="messages-list">

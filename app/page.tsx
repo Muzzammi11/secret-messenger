@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from 'next/link';
 import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
-import {createUserWithEmailAndPassword } from "firebase/auth";
-import {db,auth} from "../firebase/config";
+import { createUserWithEmailAndPassword, AuthError } from "firebase/auth";
+import { db, auth } from "../firebase/config";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
@@ -64,13 +64,14 @@ export default function Home() {
         router.replace('/profile');
       
 
-    } catch (err: any) {
-      if (err.code === 'auth/email-already-in-use') {
+    } catch (err) {
+      const authError = err as AuthError;
+      if (authError.code === 'auth/email-already-in-use') {
           setError("This email is already registered. Please log in.");
       } else {
           setError("Something went wrong. Please try again.");
       }
-      console.error(err);
+      console.error(authError);
       setLoading(false);
     }
   };

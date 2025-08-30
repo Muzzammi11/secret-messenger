@@ -1,14 +1,10 @@
 // app/login/page.tsx
-
 "use client";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from 'next/link';
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, AuthError } from "firebase/auth";
 import { auth } from "../../firebase/config";
-
-
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -25,20 +21,20 @@ export default function LoginPage() {
         try {
             // 1. Sign in the user with Firebase Auth
             await signInWithEmailAndPassword(auth, email, password);
-
             // 2. Start the top progress bar and navigate to the profile
-            
+           
             router.replace('/profile');
             // We don't setLoading(false) on success because the page is changing
-
-        } catch (err: any) {
+        } catch (err) {
             // 3. Handle specific Firebase authentication errors
-            console.error("Firebase Auth Error:", err.code);
-            if (err.code === 'auth/invalid-credential') {
+            const authError = err as AuthError;
+            console.error("Firebase Auth Error:", authError.code);
+            
+            if (authError.code === 'auth/invalid-credential') {
                 setError("Incorrect email or password. Please try again.");
-            } else if (err.code === 'auth/invalid-email') {
+            } else if (authError.code === 'auth/invalid-email') {
                 setError("The email address is not valid. Please check the format.");
-            } else if (err.code === 'auth/too-many-requests') {
+            } else if (authError.code === 'auth/too-many-requests') {
                 setError("Access to this account has been temporarily disabled due to many failed login attempts. You can reset your password or try again later.");
             } else {
                 setError("An unexpected error occurred. Please try again.");
@@ -76,13 +72,12 @@ export default function LoginPage() {
                         />
                     </div>
                     {error && <p style={{ color: "red", textAlign: "center", marginBottom: "1rem" }}>{error}</p>}
-
                     <button type="submit" className="btn" disabled={loading}>
                         {loading ? <span className="loader"></span> : "Log In"}
                     </button>
                 </form>
                 <p style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-                    Don't have an account? <Link href="/" style={{ color: '#8a2be2' }}>Sign Up</Link>
+                    Don&apos;t have an account? <Link href="/" style={{ color: '#8a2be2' }}>Sign Up</Link>
                 </p>
             </div>
         </div>
