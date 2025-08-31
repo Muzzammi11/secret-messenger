@@ -33,7 +33,7 @@ export default function MessageForm({ username }: MessageFormProps) {
       setMessage("");
       setShowRegisterPrompt(true);
       setStatus("✓ Message sent successfully!");
-      setTimeout(() => setStatus(""), 3000);
+      setTimeout(() => setStatus(""), 4000);
     } catch (error) {
       console.error("Error sending message:", error);
       setStatus("Error: Could not send message.");
@@ -50,7 +50,7 @@ export default function MessageForm({ username }: MessageFormProps) {
           <Typewriter
             words={[`Send an anonymous message to ${username}.`]}
             cursor
-            cursorStyle="_"
+            cursorStyle=""
             typeSpeed={70}
           />
         </div>

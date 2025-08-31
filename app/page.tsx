@@ -130,7 +130,7 @@ export default function Home() {
             </button>
            
           </form>
-          <p style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+          <p className="alreadyHaveAcc">
             Already have an account? <Link href="/login" style={{ color: '#8a2be2' }}>Log In</Link>
           </p>
         </div>
@@ -145,7 +145,7 @@ export default function Home() {
             <br />
             <h4>How it works:</h4>
             <ul>
-              <li><strong>1. Create your Account:</strong> This  will creates your Account and you will get your unique Link.</li>
+              <li><strong>1. Sign Up:</strong> Create an account to get your unique link.</li>
               <li><strong>2. Share your link:</strong> Post it on social media or send it directly to friends.</li>
               <li><strong>3. Receive messages:</strong> Anyone with the link can send you an anonymous message.</li>
               <li><strong>4. View your messages:</strong> Check your Profile to see what people have sent.</li>

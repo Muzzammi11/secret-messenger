@@ -76,7 +76,7 @@ export default function LoginPage() {
                         {loading ? <span className="loader"></span> : "Log In"}
                     </button>
                 </form>
-                <p style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+                <p className="dontHaveAcc">
                     Don&apos;t have an account? <Link href="/" style={{ color: '#8a2be2' }}>Sign Up</Link>
                 </p>
             </div>

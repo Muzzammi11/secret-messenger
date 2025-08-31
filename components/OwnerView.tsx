@@ -118,15 +118,29 @@ export default function OwnerDashboard({ username, currentUser }: OwnerViewProps
         </div>
 
 
-        <div className="main-navbar-logout">
-            {/* Kept new buttons but you can style them further if needed */}
-            <button 
-              type="button"
-              onClick={() => setShowSignOutDialog(true)} className="btn-secondary">Sign Out</button>
-            <button 
-              type="button"
-              onClick={() => setShowDeleteAccountDialog(true)} className="btn-danger">Delete Account</button>
-        </div>
+    
+
+              <div className="main-navbar-logout">
+               
+                <button
+                  type="button"
+                  onClick={() => setShowSignOutDialog(true)}
+                  className="btn-icon btn-secondary"
+                  title="Sign Out" 
+                >
+                  <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+
+             
+                <button
+                  type="button"
+                  onClick={() => setShowDeleteAccountDialog(true)}
+                  className="btn-icon btn-danger"
+                  title="Delete Account"
+                >
+                  <i className="fa-solid fa-user-slash"></i>
+                </button>
+              </div>
       </nav>
       
       {/* --- Dialogs / Modals (with old styling) --- */}

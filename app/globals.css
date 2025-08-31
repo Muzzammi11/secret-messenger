@@ -2,7 +2,7 @@
 :root {
   --primary: #8a2be2;
   --secondary: #00ffff;
-  --bg: #121212;
+  --bg: #000000;
   --card-bg: #1a1a1a;
   --text-glow: 0 0 10px currentColor;
   --transition-speed: 0.4s;
@@ -19,7 +19,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
@@ -44,7 +43,6 @@ body {
 
 canvas {
   display: block;
-  
 }
 
 .container {
@@ -67,16 +65,8 @@ header {
   animation: float 3s ease-in-out infinite;
   position: relative;
 }
-a{
 
-  text-decoration: underline;
-  color: #8a2be2;
-  font-weight: 600;
-  font-size: 1.05rem;
-  cursor: pointer;
-}
-.registerLink{
-
+.registerLink {
   margin-top: 1.5rem;
   font-size: 1rem;
   text-align: center;
@@ -91,12 +81,10 @@ h1 {
   text-shadow: var(--text-glow);
   letter-spacing: 1px;
 }
-.appinfo
-        {
-      
-      padding-top:8px;
-      padding-bottom:18px;
-  }
+.appinfo {
+  padding-top: 8px;
+  padding-bottom: 18px;
+}
 .subtitle {
   font-size: 1.1rem;
   color: #ccc;
@@ -211,7 +199,7 @@ input:focus,
 textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 15px var(--primary);
+  box-shadow: 0 0 8px var(--primary);
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -226,7 +214,7 @@ textarea {
   border: none;
   padding: 1rem 2.5rem;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 530;
   border-radius: 50px;
   cursor: pointer;
   transition: all var(--transition-speed) ease;
@@ -256,22 +244,31 @@ textarea {
   text-transform: uppercase;
 }
 .btn-secondary {
+  background: transparent;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
   background: var(--secondary);
-  box-shadow: none;
-  border-radius: 4px; 
-  padding: 2px 3px;
-  font-size: 0.9rem;
+  color: var(--bg);
 }
 
 .btn-danger {
-  background: var(--danger);
-  box-shadow: none;
-  border-radius: 4px; 
-  padding: 2px 3px;
-  font-size: 0.9rem;
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 0.4rem 0.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
-
-
 
 .btn-danger:hover {
   background: var(--danger-hover);
@@ -288,8 +285,6 @@ textarea {
   box-shadow: none;
   filter: brightness(1);
 }
-
-
 
 footer {
   text-align: center;
@@ -342,8 +337,7 @@ footer {
 
 .main-navbar-logout {
   display: flex;
-  justify-content: space-between;
-  
+  gap: 0.5rem;
   align-items: center;
 }
 
@@ -556,8 +550,11 @@ footer {
   margin-bottom: 3rem;
 }
 
-
-
+.alreadyHaveAcc,
+.dontHaveAcc {
+  text-align: center;
+  margin-top: 1.5rem;
+}
 
 @keyframes float {
   0% {
@@ -618,7 +615,6 @@ footer {
   }
   .terms-content ul {
     font-size: 0.95rem;
-    
   }
   .terms-content li {
     font-size: 0.95rem;
@@ -626,11 +622,22 @@ footer {
   }
   .terms-note {
     font-size: 1rem;
+  }
 
+    .btn-secondary,
+  .btn-danger {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .main-navbar-logout {
+    gap: 0.3rem;
   }
 }
 
 @media (max-width: 600px) {
+  
   .main-navbar {
     padding: 1rem 0.5rem 1rem 0.5rem;
     height: 56px;
@@ -638,7 +645,7 @@ footer {
   .main-navbar-title {
     font-size: 1.6rem;
   }
- 
+
   .main-navbar-spacer {
     width: 32px;
   }
@@ -690,16 +697,28 @@ footer {
     padding: 0.7rem 1.5rem;
     font-size: 0.9rem;
   }
-  textarea {
-    min-height: 100px;
-    font-size: 0.8rem;
-  }
+  /* textarea {
+    min-height: 90px;
+   
+  } */
+
   input,
   textarea {
-    padding: 0.8rem;
-    font-size: 0.9rem;
+    width: 100%;
+    padding: 0.5rem 0.3rem;
+    font-size: 0.6rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1.5px solid rgba(138, 43, 226, 0.5);
+    border-radius: 4px;
+    color: white;
+    box-shadow: 0 0 1px var(--primary);
+    transition: all var(--transition-speed) ease;
   }
- 
+  input:focus,
+  textarea:focus {
+    box-shadow: 0 0 3px var(--primary);
+  }
+
   footer {
     padding: 1.5rem 0;
     font-size: 0.8rem;
@@ -711,7 +730,7 @@ footer {
   }
 
   .main-navbar-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     padding-right: 10px;
   }
   .link-display-box {
@@ -719,147 +738,109 @@ footer {
     padding: 0.8rem;
   }
 
-  .logout-icon-btn {
-    font-size: 0.8rem;
-    padding-right: 5px;
-  }
-
   .card-title {
     font-size: 1.2rem;
     margin-bottom: 3rem;
   }
-  .card-subtitle{
-
+  .card-subtitle {
     margin-bottom: 1.7rem;
-  
   }
-  .text-center{
-  padding-bottom: 3rem;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 2rem;
+  .text-center {
+    padding-bottom: 3rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 2rem;
   }
-  
 
   .card-titlecopylink {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
   }
 
-  /* .btn {
-  background: linear-gradient(45deg, var(--primary), var(--secondary));
-  color: white;
-  border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all var(--transition-speed) ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: inline-block;
-  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
-  width: 100%;
-} */
-.inbox-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #b6aeae;
-  margin-bottom: 3rem;
-}
+  .inbox-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #b6aeae;
+    margin-bottom: 3rem;
+  }
 
-
-
- .terms-content h2 {
+  .terms-content h2 {
     font-size: 0.95rem;
   }
   .terms-content h4 {
     font-size: 0.9rem;
   }
-  .terms-content p{
-
+  .terms-content p {
     font-size: 0.9rem;
   }
-   .terms-header{
-     font-size: 0.95rem;
-
-   }
+  .terms-header {
+    font-size: 0.95rem;
+  }
   .terms-content li {
     font-size: 0.8rem;
     margin-bottom: 4px;
   }
   .terms-note {
     font-size: 0.8rem;
-    
   }
-  h1{
-
+  h1 {
     font-size: 1.2rem;
-    
-
   }
-  .appinfo
-        {
-      /* paddingBottom:"16px ",
+  .appinfo {
+    /* paddingBottom:"16px ",
       paddingTop:"5px" */
-      
-      padding-top:8px;
-      padding-bottom:14px;
-      
-  
+
+    padding-top: 8px;
+    padding-bottom: 14px;
   }
-label {
-  display: block;
-  font-size: 0.8rem;
-  margin-bottom: 0.3rem;
-  font-weight: 400;
-  color: var(--secondary);
-  text-shadow: var(--text-glow);
+  label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+    color: var(--secondary);
+    text-shadow: var(--text-glow);
+  }
+
+  .registerLink {
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+
+  .alreadyHaveAcc,
+  .dontHaveAcc {
+    font-size: 0.9rem;
+  }
+
+  .form-status {
+    font-size: 0.8rem;
+  }
+
+    
+  .btn-danger {
+    
+    display:none;
+  }
+  .btn-secondary {
+    padding: 0.2rem 0.3rem;
+    font-size: 0.7rem;
+    font-weight: 400;
+    
+  } 
+
+  .main-navbar-logout {
+    gap: 0.2rem;
+  }
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 0.5rem 0.4rem;
-  background: rgba(0, 0, 0, 0.3);
-  border: 2px solid rgba(138, 43, 226, 0.5);
-  border-radius: 6px;
-  color: white;
-  font-size: 0.8rem;
-  transition: all var(--transition-speed) ease;
-}
-
-
-
-
-a{
- display: block;
-  font-size:0.8rem ;
-}
-
-
-.registerLink{
-
-  margin-top: 0.8rem;
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-.subtitle{
-  font-size: 0.9rem;
-  color: #ffffff;
-  
-
-}
-
-
-
-
-
-}
 @media (max-width: 320px) {
   .container {
     padding: 0.5rem;
@@ -882,13 +863,10 @@ a{
   }
 }
 
-
-
-
 .loader {
   width: 18px;
   height: 18px;
-  border: 2px solid #FFF;
+  border: 2px solid #fff;
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
@@ -948,6 +926,8 @@ a{
   .btn {
     font-size: 0.7rem;
   }
+
+
 }
 
 @media (max-width: 320px) {
@@ -968,7 +948,6 @@ a{
   }
 }
 /* --- App Footer Styles --- */
-
 
 .app-footer {
   width: 100%;
@@ -1031,8 +1010,7 @@ a{
     font-size: 0.78rem;
   }
   .footer-text span {
-    display: block; 
-     
+    display: block;
   }
 }
 
@@ -1063,7 +1041,7 @@ a{
 .spinner {
   width: 28px;
   height: 28px;
-  border: 2px solid #64afdd; 
+  border: 2px solid #64afdd;
   border-bottom-color: transparent;
   border-radius: 50%;
   display: inline-block;
